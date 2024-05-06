@@ -12,7 +12,8 @@ def generate_testbench(input_dir, csv_filename, output_filename, num_samples):
     data = data[:num_samples]
     
     #Scale the floats to 32 bit signed integers
-    data = [int(x * 2**31) for x in data]
+    #data = [int(x * 2**31) for x in data]
+    data = [int(x) for x in data]
     
     # Start writing the testbench
     with open(output_filename, 'w') as f:
@@ -53,4 +54,4 @@ def generate_testbench(input_dir, csv_filename, output_filename, num_samples):
         f.write('endmodule\n')
 
 # Gnertate the testbench
-generate_testbench('convertedwav', 'CantinaBand3.csv', 'basic_min_max_csv_tb.v', 100)
+generate_testbench('convertedwav', 'CantinaBand3.csv', 'interval_min_max_tb.v', 100)
