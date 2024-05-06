@@ -53,4 +53,4 @@ def generate_testbench(input_dir, csv_filename, output_filename, num_samples):
         f.write('endmodule\n')
 
 # Gnertate the testbench
-generate_testbench('convertedwav', 'CantinaBand3.csv', 'basic_min_max_csv_tb.v', 100)
+generate_testbench('convertedwav', 'BabyElephantWalk60.csv', 'basic_min_max_csv_tb.v', 100)
