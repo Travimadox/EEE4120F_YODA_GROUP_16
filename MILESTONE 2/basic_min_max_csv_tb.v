@@ -1,3 +1,4 @@
+
 module audio_min_max_tb;
 localparam N = 100; // Number of samples
 reg reset, start, clk;
@@ -22,21 +23,9 @@ initial begin
     reset = 1;
     start = 0;
     // Load the hardcoded array
-    raw_audio[0] = 422212465065984;
-    raw_audio[1] = 985162418487296;
     raw_audio[0] = 0;
     raw_audio[1] = 0;
     raw_audio[2] = 0;
-    raw_audio[3] = 703687441776640;
-    raw_audio[4] = 985162418487296;
-    raw_audio[5] = 562949953421312;
-    raw_audio[6] = 422212465065984;
-    raw_audio[7] = 985162418487296;
-    raw_audio[8] = 703687441776640;
-    raw_audio[9] = 703687441776640;
-    raw_audio[10] = 281474976710656;
-    raw_audio[11] = 422212465065984;
-    raw_audio[12] = -140737488355328;
     raw_audio[3] = 0;
     raw_audio[4] = 0;
     raw_audio[5] = 0;
@@ -48,19 +37,6 @@ initial begin
     raw_audio[11] = 0;
     raw_audio[12] = 0;
     raw_audio[13] = 0;
-    raw_audio[14] = 562949953421312;
-    raw_audio[15] = 281474976710656;
-    raw_audio[16] = -281474976710656;
-    raw_audio[17] = -140737488355328;
-    raw_audio[18] = 140737488355328;
-    raw_audio[19] = 140737488355328;
-    raw_audio[20] = 140737488355328;
-    raw_audio[21] = -281474976710656;
-    raw_audio[22] = -281474976710656;
-    raw_audio[23] = 140737488355328;
-    raw_audio[24] = 281474976710656;
-    raw_audio[25] = -562949953421312;
-    raw_audio[26] = -562949953421312;
     raw_audio[14] = 0;
     raw_audio[15] = 0;
     raw_audio[16] = 0;
