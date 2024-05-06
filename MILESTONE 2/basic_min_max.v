@@ -32,7 +32,7 @@ always @(posedge clk) begin
                     state <= COMPUTING;
                     i <= 0; // Reset loop counter
                     min <= 32'h7FFFFFFF;; // Set initial min value to the first sample
-                    max <= -32'h80000000; // Set initial max value to the first sample
+                    max <= 32'h80000000; // Set initial max value to the first sample
                 end
             end
            COMPUTING: begin

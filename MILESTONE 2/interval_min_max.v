@@ -40,12 +40,14 @@ always @(posedge clk) begin
                 end
             end
             INTERVAL_START: begin
+                
                 min <= raw_audio[0];
                 max <= raw_audio[0];
                 interval_counter <= 0;
                 state <= INTERVAL_COMPUTING;
             end
             INTERVAL_COMPUTING: begin
+                
                 y = raw_audio[i];
                 if (y < min) begin
                     min <= y;
@@ -62,7 +64,7 @@ always @(posedge clk) begin
                 out_max[interval_index] <= max;
                 out_min[interval_index] <= min;
                 interval_index <= interval_index + 1;
-                if (i == N - 1) begin
+                if (i > N - 1) begin
                     state <= IDLE;
                     done <= 1;
                 end else begin
