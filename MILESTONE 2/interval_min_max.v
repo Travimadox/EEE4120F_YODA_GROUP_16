@@ -19,9 +19,9 @@ localparam N = 100;  // number of samples
 localparam NUM_INTERVALS = N / 10;  // number of intervals (assuming interval_len = 10)
 
 reg [1:0] state;
-reg [31:0] max;
-reg [31:0] min;
-reg [31:0] y;  // sample placeholder
+reg signed [31:0] max;
+reg signed [31:0] min;
+reg signed [31:0] y;  // sample placeholder
 reg [15:0] interval_counter;
 reg [6:0] interval_index;
 
@@ -41,8 +41,10 @@ always @(posedge clk) begin
             end
             INTERVAL_START: begin
                 
-                min <= raw_audio[0];
-                max <= raw_audio[0];
+                //min <= raw_audio[0];
+                //max <= raw_audio[0];
+                min <= 32'h7FFFFFFF;
+                max <= 32'h80000000;
                 interval_counter <= 0;
                 state <= INTERVAL_COMPUTING;
             end
