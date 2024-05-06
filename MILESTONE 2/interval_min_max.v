@@ -40,14 +40,14 @@ always @(posedge clk) begin
                 end
             end
             INTERVAL_START: begin
-                $display("Started...");
+                
                 min <= raw_audio[0];
                 max <= raw_audio[0];
                 interval_counter <= 0;
                 state <= INTERVAL_COMPUTING;
             end
             INTERVAL_COMPUTING: begin
-                $display("Interval counter... ",interval_counter);
+                
                 y = raw_audio[i];
                 if (y < min) begin
                     min <= y;
