@@ -35,16 +35,15 @@ always @(posedge clk) begin
     end else begin
         case (state)
             IDLE: begin
+                i <= 0;
                 if (start) begin
                     state <= INTERVAL_START;
                 end
             end
             INTERVAL_START: begin
                 
-                //min <= raw_audio[0];
-                //max <= raw_audio[0];
-                min <= 32'h7FFFFFFF;
-                max <= 32'h80000000;
+                min <= 32'h7FFFFFFF; // set min to highest signed int
+                max <= 32'h80000000; // set max to lowest signed int
                 interval_counter <= 0;
                 state <= INTERVAL_COMPUTING;
             end
@@ -53,7 +52,8 @@ always @(posedge clk) begin
                 y = raw_audio[i];
                 if (y < min) begin
                     min <= y;
-                end else if (y > max) begin
+                end
+                if (y > max) begin
                     max <= y;
                 end
                 i <= i + 1;
