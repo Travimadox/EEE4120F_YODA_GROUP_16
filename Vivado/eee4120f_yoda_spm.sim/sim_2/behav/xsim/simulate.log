@@ -1,0 +1,12 @@
+Time resolution is 1 ps
+0. Maximum: 458752, Minimum: 0
+1. Maximum: 262144, Minimum: -131072
+2. Maximum: 131072, Minimum: -262144
+3. Maximum: -65536, Minimum: -458752
+4. Maximum: -327680, Minimum: -851968
+5. Maximum: -589824, Minimum: -917504
+6. Maximum: -589824, Minimum: -1245184
+7. Maximum: -917504, Minimum: -1376256
+8. Maximum: -983040, Minimum: -1441792
+9. Maximum: -1245184, Minimum: -1769472
+$finish called at time : 1230 ns : File "C:/Users/lien/Desktop/ug937-design-files/eee4120f_yoda_spm/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max_tb.v" Line 143
