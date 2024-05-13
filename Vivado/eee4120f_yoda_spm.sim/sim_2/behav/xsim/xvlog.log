@@ -1,9 +1,9 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/lien/Desktop/ug937-design-files/eee4120f_yoda_spm/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module audio_min_max_interval
-WARNING: [VRFC 10-3380] identifier 'N' is used before its declaration [C:/Users/lien/Desktop/ug937-design-files/eee4120f_yoda_spm/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max.v:7]
-WARNING: [VRFC 10-3380] identifier 'NUM_INTERVALS' is used before its declaration [C:/Users/lien/Desktop/ug937-design-files/eee4120f_yoda_spm/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max.v:10]
-WARNING: [VRFC 10-3380] identifier 'NUM_INTERVALS' is used before its declaration [C:/Users/lien/Desktop/ug937-design-files/eee4120f_yoda_spm/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max.v:11]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/lien/Desktop/ug937-design-files/eee4120f_yoda_spm/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max_tb.v" into library xil_defaultlib
+WARNING: [VRFC 10-3380] identifier 'N' is used before its declaration [C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max.v:7]
+WARNING: [VRFC 10-3380] identifier 'NUM_INTERVALS' is used before its declaration [C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max.v:10]
+WARNING: [VRFC 10-3380] identifier 'NUM_INTERVALS' is used before its declaration [C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max.v:11]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.srcs/sim_2/imports/MILESTONE 2/interval_min_max_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module audio_min_max_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/lien/Desktop/ug937-design-files/eee4120f_yoda_spm/eee4120f_yoda_spm.sim/sim_2/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.sim/sim_2/behav/xsim/glbl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module glbl
