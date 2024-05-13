@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module audio_min_max_tb;
 localparam N = 100; // Number of samples
 reg reset, start, clk;
@@ -130,5 +132,11 @@ initial begin
     // Print the results
     $display("Maximum: %d, Minimum: %d", out_max, out_min);
     $finish;
+
+end
+
+initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars; 
 end
 endmodule

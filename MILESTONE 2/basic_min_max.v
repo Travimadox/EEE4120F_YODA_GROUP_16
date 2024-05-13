@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module audio_min_max (
     input wire reset,  // reset when high
     input wire start,  // start pulse
@@ -39,15 +41,15 @@ always @(posedge clk) begin
                 y = raw_audio[i];
                 if (y < min) begin
                     min <= y;
-                    $display("Min now is: %d", min);
+                    //$display("Min now is: %d", min);
                 end 
                 if (y > max) begin
                     max <= y;
-                    $display("Max now is: %d", max);
+                    //$display("Max now is: %d", max);
                 end
                 i = i + 1;
 
-                if (i == N) begin
+                if (i > N) begin
                     out_max <= max;
                     out_min <= min;
                     state <= IDLE;
