@@ -1,4 +1,6 @@
-`timescale 1ns / 1ps
+module audio_min_max_tb;
+localparam N = 100; // Number of samples
+localparam NUM_INTERVALS = N/10;
 
 module audio_min_max_tb;
 localparam N = 100; // Number of samples
