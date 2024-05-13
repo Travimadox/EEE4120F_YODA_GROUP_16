@@ -1,36 +1,28 @@
-module audio_min_max_tb;
-localparam N = 100; // Number of samples
-localparam NUM_INTERVALS = N/10;
+`timescale 1ns / 1ps
 
 module audio_min_max_tb;
 localparam N = 100; // Number of samples
-localparam NUM_INTERVALS = N/10;
-
 reg reset, start, clk;
 reg signed [31:0] raw_audio [N-1:0];
-wire done;
-wire signed [31:0] out_max [NUM_INTERVALS-1:0], out_min [NUM_INTERVALS-1:0];
-reg [15:0] interval_len;
-// Instantiate audio_min_max_interval
-audio_min_max_interval aud_minmaxint (
+wire d;
+wire signed [31:0] out_max, out_min;
+// Instantiate audio_min_max
+audio_min_max aud_minmax (
     .reset(reset),
     .start(start),
     .clk(clk),
     .raw_audio(raw_audio),
-    .done(done),
-    .interval_len(interval_len),
+    .d(d),
     .out_max(out_max),
     .out_min(out_min)
 );
 // Clock generation
 always #5 clk = ~clk;
-integer i = 0;
 // Test case: Hardcoded array from CSV file
 initial begin
     clk = 0;
     reset = 1;
     start = 0;
-    interval_len = 10;
     // Load the hardcoded array
     raw_audio[0] = 196608;
     raw_audio[1] = 458752;
@@ -136,15 +128,14 @@ initial begin
     #10 start = 1;
     #10 start = 0;
     // Wait for the computation to complete
-    wait (done);
+    wait (d);
+    #20
     // Print the results
-    #5
-    for (i= 0; i<NUM_INTERVALS; i=i+1) begin
-        $display("%1d. Maximum: %1d, Minimum: %1d", i, out_max[i], out_min[i]);
-    end
+    $display("Maximum: %d, Minimum: %d", out_max, out_min);
     $finish;
-    
+
 end
+
 initial begin
     $dumpfile("dump.vcd");
     $dumpvars; 

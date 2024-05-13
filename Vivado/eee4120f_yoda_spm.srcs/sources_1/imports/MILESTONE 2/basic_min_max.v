@@ -39,13 +39,14 @@ always @(posedge clk) begin
             end
            COMPUTING: begin
                 y = raw_audio[i];
+                $display("Sample ...%d",i);
                 if (y < min) begin
                     min <= y;
-                    //$display("Min now is: %d", min);
+                    $display("Min now is: %d", min);
                 end 
                 if (y > max) begin
                     max <= y;
-                    //$display("Max now is: %d", max);
+                    $display("Max now is: %d", max);
                 end
                 i = i + 1;
 

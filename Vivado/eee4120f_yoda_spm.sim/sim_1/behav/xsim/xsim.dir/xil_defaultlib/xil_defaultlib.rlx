@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,uvm,,,,,,
+C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.srcs/sim_1/imports/MILESTONE 2/basic_min_max_tb.v,1715436094,systemVerilog,,,,audio_min_max_tb,,uvm,,,,,,
+C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.srcs/sources_1/imports/MILESTONE 2/basic_min_max.v,1715432456,systemVerilog,,C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/eee4120f_yoda_spm.srcs/sim_1/imports/MILESTONE 2/basic_min_max_tb.v,,audio_min_max,,uvm,,,,,,
+C:/Users/lien/Desktop/ug937-design-files/eee4120f_yoda_spm/eee4120f_yoda_spm.srcs/sources_1/imports/MILESTONE 2/interval_min_max.v,1715086062,systemVerilog,,C:/Users/lien/Desktop/ug937-design-files/eee4120f_yoda_spm/eee4120f_yoda_spm.srcs/sim_1/imports/MILESTONE 2/interval_min_max_tb.v,,audio_min_max_interval,,uvm,,,,,,

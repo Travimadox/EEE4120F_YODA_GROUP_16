@@ -1,3 +1,4 @@
+
 module audio_min_max_tb;
 localparam N = 100; // Number of samples
 reg reset, start, clk;

@@ -35,7 +35,7 @@ always @(posedge clk) begin
     end else begin
         case (state)
             IDLE: begin
-                i <= 0;
+                i = 0;
                 if (start) begin
                     state <= INTERVAL_START;
                 end
@@ -48,12 +48,10 @@ always @(posedge clk) begin
                 state <= INTERVAL_COMPUTING;
             end
             INTERVAL_COMPUTING: begin
-                
                 y = raw_audio[i];
                 if (y < min) begin
                     min <= y;
-                end
-                if (y > max) begin
+                end else if (y > max) begin
                     max <= y;
                 end
                 i <= i + 1;
