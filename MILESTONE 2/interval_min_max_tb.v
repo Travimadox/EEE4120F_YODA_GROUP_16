@@ -2,9 +2,9 @@ module audio_min_max_tb;
 localparam N = 100; // Number of samples
 localparam NUM_INTERVALS = N/10;
 
-module audio_min_max_tb;
-localparam N = 100; // Number of samples
-localparam NUM_INTERVALS = N/10;
+// module audio_min_max_tb;
+// localparam N = 100; // Number of samples
+// localparam NUM_INTERVALS = N/10;
 
 reg reset, start, clk;
 reg signed [31:0] raw_audio [N-1:0];

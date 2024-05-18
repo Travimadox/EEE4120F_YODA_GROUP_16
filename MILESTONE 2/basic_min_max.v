@@ -1,29 +1,28 @@
 `timescale 1ns / 1ps
 
-module audio_min_max (
-    input wire reset,  // reset when high
-    input wire start,  // start pulse
-    input wire clk,    // clock
-    input reg signed [31:0] raw_audio [N-1:0], // raw audio data
-    output reg d,      // done computing min & max
-    output reg signed [31:0] out_max, // max audio amplitude
-    output reg signed [31:0] out_min // min audio amplitude
-);
-
+module basic_minmax #(parameter NO_OF_SAMPLES = 100, WIDTH = 32)
+(
+    input reg clk,
+    input reg start,
+    input reg reset,
+    input reg signed [WIDTH-1:0] audio_in [NO_OF_SAMPLES-1:0],
+    output reg done,
+    output reg signed [WIDTH-1:0] min,
+    output reg signed [WIDTH-1:0] max
+ );
+ 
+//State parameters
 localparam IDLE = 2'b00;
 localparam COMPUTING = 2'b01;
-localparam N = 100; // Number of samples 
-
-reg [1:0] state;          // state
-reg signed [31:0] max;    // current max
-reg signed [31:0] min;    // current min
-reg signed [31:0] y;      // sample placeholder
-
-integer i = 0;
+ 
+reg [1:0] state;                     // state variable 
+reg signed [WIDTH-1:0] amplitude;    // sample amplitude variable
+ 
+integer i = 0;                       //  
 
 always @(posedge clk) begin
     if (reset) begin
-        d <= 0;
+        done <= 1'b0;
         min <= 32'h7FFFFFFF; // maximum positive value for a 32-bit signed integer
         max <= 32'h80000000; // maximum negative value for a 32-bit signed integer
         state <= IDLE;
@@ -33,30 +32,27 @@ always @(posedge clk) begin
                 if (start) begin
                     state <= COMPUTING;
                     i <= 0; // Reset loop counter
-                    min <= 32'h7FFFFFFF;; // Set initial min value to the first sample
-                    max <= 32'h80000000; // Set initial max value to the first sample
+                    min <= audio_in[i]; // Set initial min value to the first sample
+                    max <= audio_in[i]; // Set initial max value to the first sample
                 end
             end
            COMPUTING: begin
-                y = raw_audio[i];
-                if (y < min) begin
-                    min <= y;
+                amplitude = audio_in[i];
+                if (amplitude < min) begin
+                    min <= amplitude;
                     //$display("Min now is: %d", min);
                 end 
-                if (y > max) begin
-                    max <= y;
+                if (amplitude > max) begin
+                    max <= amplitude;
                     //$display("Max now is: %d", max);
                 end
                 i = i + 1;
-
-                if (i > N) begin
-                    out_max <= max;
-                    out_min <= min;
+                // At the end of computatation indicate with done and go to the IDLE state
+                if (i > NO_OF_SAMPLES) begin
                     state <= IDLE;
-                    d <= 1;
+                    done <= 1'b1;
                 end
             end
-
         endcase
     end
 end
