@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="wave_reader_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="wave_reader_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="1,323.095001 us"></ZoomEndTime>
+      <Cursor1Time time="670.564876 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="151"></NameColumnWidth>
+      <ValueColumnWidth column_width="89"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="21" />
+   <wvobject fp_name="/wave_reader_tb/clock" type="logic">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/data_valid" type="logic">
+      <obj_property name="ElementShortName">data_valid</obj_property>
+      <obj_property name="ObjectShortName">data_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/audio_in" type="array">
+      <obj_property name="ElementShortName">audio_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">audio_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/status" type="array">
+      <obj_property name="ElementShortName">status[31:0]</obj_property>
+      <obj_property name="ObjectShortName">status[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/aux" type="array">
+      <obj_property name="ElementShortName">aux[7:0]</obj_property>
+      <obj_property name="ObjectShortName">aux[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/number_of_samples" type="array">
+      <obj_property name="ElementShortName">number_of_samples[31:0]</obj_property>
+      <obj_property name="ObjectShortName">number_of_samples[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/chunk_id" type="array">
+      <obj_property name="ElementShortName">chunk_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">chunk_id[31:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/chunk_size" type="array">
+      <obj_property name="ElementShortName">chunk_size[31:0]</obj_property>
+      <obj_property name="ObjectShortName">chunk_size[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/format" type="array">
+      <obj_property name="ElementShortName">format[31:0]</obj_property>
+      <obj_property name="ObjectShortName">format[31:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/subchunk_1_id" type="array">
+      <obj_property name="ElementShortName">subchunk_1_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">subchunk_1_id[31:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/subchunk_1_size" type="array">
+      <obj_property name="ElementShortName">subchunk_1_size[31:0]</obj_property>
+      <obj_property name="ObjectShortName">subchunk_1_size[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/audio_format" type="array">
+      <obj_property name="ElementShortName">audio_format[15:0]</obj_property>
+      <obj_property name="ObjectShortName">audio_format[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/num_channels" type="array">
+      <obj_property name="ElementShortName">num_channels[15:0]</obj_property>
+      <obj_property name="ObjectShortName">num_channels[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/sample_rate" type="array">
+      <obj_property name="ElementShortName">sample_rate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sample_rate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/byte_rate" type="array">
+      <obj_property name="ElementShortName">byte_rate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">byte_rate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/block_align" type="array">
+      <obj_property name="ElementShortName">block_align[15:0]</obj_property>
+      <obj_property name="ObjectShortName">block_align[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/bits_per_sample" type="array">
+      <obj_property name="ElementShortName">bits_per_sample[15:0]</obj_property>
+      <obj_property name="ObjectShortName">bits_per_sample[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/subchunk_2_id" type="array">
+      <obj_property name="ElementShortName">subchunk_2_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">subchunk_2_id[31:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/subchunk_2_size" type="array">
+      <obj_property name="ElementShortName">subchunk_2_size[31:0]</obj_property>
+      <obj_property name="ObjectShortName">subchunk_2_size[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/data_right" type="array">
+      <obj_property name="ElementShortName">data_right[23:0]</obj_property>
+      <obj_property name="ObjectShortName">data_right[23:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">200</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">0</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/wave_reader_tb/data_right_aux" type="array">
+      <obj_property name="ElementShortName">data_right_aux[23:0]</obj_property>
+      <obj_property name="ObjectShortName">data_right_aux[23:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
