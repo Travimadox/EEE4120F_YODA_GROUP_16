@@ -1,4 +1,24 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: TEAM 14
+// Engineer: TEAM 14
+// 
+// Create Date: 05/18/2024 01:11:53 PM
+// Design Name: Basic Min-Max Filter
+// Module Name: basic_minmax
+// Project Name: SPM
+// Target Devices: Nexys A7 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
 
 module basic_minmax #(parameter NO_OF_SAMPLES = 100, WIDTH = 32)
 (
@@ -15,10 +35,10 @@ module basic_minmax #(parameter NO_OF_SAMPLES = 100, WIDTH = 32)
 localparam IDLE = 2'b00;
 localparam COMPUTING = 2'b01;
  
-reg [1:0] state;                     // state variable 
-reg signed [WIDTH-1:0] amplitude;    // sample amplitude variable
+reg [1:0] state;                 // state variable 
+reg signed [WIDTH-1:0] y;        // sample amplitude variable
  
-integer i = 0;                       //  
+integer i = 0;                   //  
 
 always @(posedge clk) begin
     if (reset) begin
@@ -37,13 +57,13 @@ always @(posedge clk) begin
                 end
             end
            COMPUTING: begin
-                amplitude = audio_in[i];
-                if (amplitude < min) begin
-                    min <= amplitude;
+                y = audio_in[i];
+                if (y < min) begin
+                    min <= y;
                     //$display("Min now is: %d", min);
                 end 
-                if (amplitude > max) begin
-                    max <= amplitude;
+                if (y > max) begin
+                    max <= y;
                     //$display("Max now is: %d", max);
                 end
                 i = i + 1;
