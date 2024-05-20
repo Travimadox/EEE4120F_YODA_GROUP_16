@@ -13,11 +13,11 @@
    <zoom_setting>
       <ZoomStartTime time="0.000000 us"></ZoomStartTime>
       <ZoomEndTime time="1,323.095001 us"></ZoomEndTime>
-      <Cursor1Time time="670.564876 us"></Cursor1Time>
+      <Cursor1Time time="1,323.095000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="151"></NameColumnWidth>
-      <ValueColumnWidth column_width="89"></ValueColumnWidth>
+      <ValueColumnWidth column_width="85"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="21" />
    <wvobject fp_name="/wave_reader_tb/clock" type="logic">
@@ -104,7 +104,7 @@
       <obj_property name="ElementShortName">data_right[23:0]</obj_property>
       <obj_property name="ObjectShortName">data_right[23:0]</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">200</obj_property>
+      <obj_property name="CellHeight">150</obj_property>
       <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
       <obj_property name="AnalogYRangeMin">0.000000</obj_property>
       <obj_property name="AnalogYRRangeMax">0.000000</obj_property>

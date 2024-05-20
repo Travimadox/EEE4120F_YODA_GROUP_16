@@ -16,11 +16,15 @@
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+// Original version taken from Isaac Verdu @rtlaudiolab
+// Link: https://gitlab.com/rtlaudiolab/fpga_audio_processor/-/blob/a677fc83048d4d133c270bea58c09a1e3df48682/sim/wave_file_reader/wave_file_reader.sv
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 
 module wave_reader_tb();
+
+    parameter string FILEPATH = "StarWars3.wav";
     logic clock;
     logic data_valid;
     int audio_in;
@@ -67,7 +71,7 @@ module wave_reader_tb();
         data_right_aux <= 'b0;
         //data_left_aux <= 'b0;
         
-        audio_in = $fopen("StarWars3.wav", "rb");
+        audio_in = $fopen(FILEPATH, "rb");
 
         status = $fread(chunk_id, audio_in);
         if (status != 0) begin

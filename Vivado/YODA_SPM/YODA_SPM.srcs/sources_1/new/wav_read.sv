@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: TEAM 16
+// Engineer: TEAM 16
 // 
 // Create Date: 05/18/2024 01:11:53 PM
-// Design Name: 
+// Design Name: Wave File Reader
 // Module Name: wav_read
-// Project Name: 
-// Target Devices: 
+// Project Name: SPM
+// Target Devices: Nexys A7 FPGA
 // Tool Versions: 
 // Description: 
 // 
@@ -20,26 +20,30 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module wav_read #(parameter string FILEPATH = "StarWars3")
+module wav_read #(parameter string FILEPATH = "StarWars3.wav", int NO_OF_SAMPLES = 66150, int WIDTH = 32)
 (
     input reg clk,
     input reg start,
     input reg reset,
     output reg done,
-    output reg [23:0] audio_out,
-    output reg error
+    output reg [WIDTH-1:0] audio_out[NO_OF_SAMPLES-1:0],
+    output reg [WIDTH-1:0] audio_wave, // For Vivado wave generation
+    output reg error             // Error for files 
 );
 
-localparam IDLE = 1'b0;
-localparam READING = 1'b1;
+localparam IDLE = 2'b00;
+localparam READ_HEAD = 2'b01;
+localparam READ_DATA = 2'b10;
 
-logic state;
+logic [1:0] state;
+
 
 logic data_valid;
-logic aux;
+logic [7:0] aux;
 int status;
 int audio_in;
 int no_of_samples;
+int i = 0;
 
 logic           [31:0]  chunk_id;
 logic           [31:0]  chunk_size;
@@ -54,27 +58,42 @@ logic           [15:0]  block_align;
 logic           [15:0]  bits_per_sample;
 logic           [31:0]  subchunk_2_id;
 logic           [31:0]  subchunk_2_size;
-logic signed    [23:0]  data_aux;
+logic signed    [31:0]  data_aux;
 
 
 initial begin
+    $display("Initial File Read");
     audio_in = $fopen(FILEPATH, "rb");
+    error = 1'b0;
+    if (audio_in == 0) begin
+        error = 1'b1;
+        $display("Error: Unable to open the file!");
+    end
 end 
 
 always @(posedge clk) begin
     if(reset) begin
+        i <= 0;
         done <= 1'b0;
-        error <= 1'b0;
-        state <= IDLE;
+        audio_in <= $fopen(FILEPATH, "rb");
+        if (audio_in == 0) begin
+            error <= 1'b1;
+            $display("Error: Unable to open the file!");
+        end else begin
+            state <= IDLE;
+        end
     end else begin
         case (state)
             IDLE: begin
                 if(start) begin
-                    state <= READING;
-                    
+                    if(error) begin
+                        $display("Failed to start wav read due to file error!");
+                    end else begin
+                        state <= READ_HEAD;
+                    end
                 end
             end
-            READING: begin
+            READ_HEAD: begin
                 status = $fread(chunk_id, audio_in);
                 if (status != 0) begin
                     $display ("Chunk ID: 0x%h. Expected: 0x52494646 ('RIFF')", chunk_id);
@@ -151,23 +170,33 @@ always @(posedge clk) begin
 
                 no_of_samples = (subchunk_2_size*8)/(num_channels*bits_per_sample);
                 $display ("Calculated Number of Samples: %d", no_of_samples);
-                $display ("Reading the audio data");
-                for (int i = 0; i < no_of_samples; i++) begin
-                    for (int j = 0; j < (bits_per_sample/8); j++) begin
-                        status = $fread(aux, audio_in);
-                        data_aux = {aux, data_aux[23:8]};
-                    end
-                
-                    @(posedge clk);
-                        data_valid <= 1'b1;
-                        audio_out <= data_aux;
-                        
-                    @(posedge clk);
-                        data_valid <= 1'b0;
-                        
+                state = READ_DATA;
+                $display("Reading...");
+            end
+            READ_DATA: begin
+                //$display ("Reading the audio data %d",i);
+                for (int j = 0; j < (bits_per_sample/8); j++) begin
+                    status = $fread(aux, audio_in);
+                    data_aux = {aux, data_aux[31:8]};
                 end
-                $display ("Audio data read");
-                $fclose(audio_in);
+                audio_wave = data_aux;
+                audio_out[i] = data_aux;
+                i=i+1;
+
+                // @(posedge clk);
+                //     data_valid <= 1'b1;
+                //     audio_out <= data_aux;
+                    
+                // @(posedge clk);
+                //     data_valid <= 1'b0;
+                        
+                if(i>=no_of_samples) begin
+                    $display ("Done Reading");
+                    $fclose(audio_in);
+                    done <= 1'b1;
+                    state <= IDLE;
+
+                end  
             end
         endcase
     end 

@@ -42,6 +42,7 @@ integer i = 0;                   //
 
 always @(posedge clk) begin
     if (reset) begin
+        $display("Reset");
         done <= 1'b0;
         min <= 32'h7FFFFFFF; // maximum positive value for a 32-bit signed integer
         max <= 32'h80000000; // maximum negative value for a 32-bit signed integer
@@ -50,25 +51,28 @@ always @(posedge clk) begin
         case (state)
             IDLE: begin
                 if (start) begin
+                    $display("Start");
                     state <= COMPUTING;
                     i <= 0; // Reset loop counter
-                    min <= audio_in[i]; // Set initial min value to the first sample
-                    max <= audio_in[i]; // Set initial max value to the first sample
+                    // min <= audio_in[i]; // Set initial min value to the first sample
+                    // max <= audio_in[i]; // Set initial max value to the first sample
                 end
+                $display("State %d", state);
             end
            COMPUTING: begin
-                y = audio_in[i];
+                y <= audio_in[i];
+                //$display("Inst %d",y);
                 if (y < min) begin
                     min <= y;
-                    //$display("Min now is: %d", min);
+                    $display("Min now is: %d", min);
                 end 
                 if (y > max) begin
                     max <= y;
-                    //$display("Max now is: %d", max);
+                    $display("Max now is: %d", max);
                 end
                 i = i + 1;
                 // At the end of computatation indicate with done and go to the IDLE state
-                if (i > NO_OF_SAMPLES) begin
+                if (i >= NO_OF_SAMPLES) begin
                     state <= IDLE;
                     done <= 1'b1;
                 end
