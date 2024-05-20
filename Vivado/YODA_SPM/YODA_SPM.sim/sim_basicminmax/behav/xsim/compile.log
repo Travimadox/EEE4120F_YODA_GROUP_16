@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/YODA_SPM/YODA_SPM.srcs/sources_1/new/basic_minmax.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module basic_minmax
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/YODA_SPM/YODA_SPM.srcs/sources_1/new/wav_read.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module wav_read
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/YODA_SPM/YODA_SPM.srcs/sim_basicminmax/new/basic_minmax_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module basic_minmax_tb

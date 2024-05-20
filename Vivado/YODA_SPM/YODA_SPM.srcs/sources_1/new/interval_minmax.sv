@@ -37,7 +37,8 @@ module interval_minmax
     input reg [INTERVAL_WIDTH-1:0] interval_len = INTERVAL_LEN,
     output reg done,
     output reg signed [WIDTH-1:0] min [NO_OF_INTERVALS:0],
-    output reg signed [WIDTH-1:0] max [NO_OF_INTERVALS:0]
+    output reg signed [WIDTH-1:0] max [NO_OF_INTERVALS:0],
+    output reg signed [WIDTH-1:0] filtered_wave // For Vivado wave generation 
 );
 
 // state parameteres 
@@ -46,40 +47,45 @@ localparam INTERVAL_START = 2'b01;
 localparam INTERVAL_COMPUTING = 2'b10;
 localparam INTERVAL_DONE = 2'b11;
 
-reg [1:0] state;    // state variable
-reg signed [31:0] max_aux;  // current max variable
-reg signed [31:0] min_aux;  // current min variable
-reg signed [31:0] y;  // sample amplitude variable
+reg [1:0] state = IDLE;    // state variable
+reg signed [WIDTH-1:0] max_aux;  // current max variable
+reg signed [WIDTH-1:0] min_aux;  // current min variable
+reg signed [WIDTH-1:0] y;  // sample amplitude variable
 
 reg [INTERVAL_WIDTH-1:0] interval_counter;
 integer interval_index;
 integer i = 0;
 
+
 always @(posedge clk) begin
     if (reset) begin
+        $display("Reset");
         done <= 0;
         state <= IDLE;
         interval_index <= 0;
     end else begin
         case (state)
             IDLE: begin
+                //$display("IDLE, start:%1d",start);
                 i <= 0;
                 if (start) begin
                     state <= INTERVAL_START;
+                    //$display("Start");
                 end
             end
             INTERVAL_START: begin
-                
-                min_aux <= audio_in[i];
-                max_aux <= audio_in[i];
+                //$display("Interval start");
+                min_aux <= 32'h7FFFFFFF; // maximum positive value for a 32-bit signed integer
+                max_aux <= 32'h80000000;
                 interval_counter <= 0;
                 state <= INTERVAL_COMPUTING;
             end
             INTERVAL_COMPUTING: begin
-                
+                //$display("interval compute");
                 y = audio_in[i];
                 if (y < min_aux) begin
                     min_aux <= y;
+                    //$display("min is: %d", min_aux);
                 end
                 if (y > max_aux) begin
                     max_aux <= y;
@@ -91,6 +97,12 @@ always @(posedge clk) begin
                 end
             end
             INTERVAL_DONE: begin
+                //$display("interval done");
+                filtered_wave <= min_aux;
+                @(negedge clk) begin
+                    filtered_wave <= max_aux;
+                end
+
                 max[interval_index] <= max_aux;
                 min[interval_index] <= min_aux;
                 interval_index <= interval_index + 1;
@@ -98,6 +110,7 @@ always @(posedge clk) begin
                 if (i > NO_OF_SAMPLES - 1) begin
                     state <= IDLE;
                     done <= 1;
+                    $display("Done");
                 end else begin
                     state <= INTERVAL_START;
                 end

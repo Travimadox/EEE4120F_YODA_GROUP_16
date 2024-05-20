@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="basic_minmax_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="basic_minmax_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="990.484676 us"></ZoomEndTime>
+      <Cursor1Time time="792.145864 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="151"></NameColumnWidth>
+      <ValueColumnWidth column_width="77"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/basic_minmax_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/min" type="array">
+      <obj_property name="ElementShortName">min[31:0]</obj_property>
+      <obj_property name="ObjectShortName">min[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">0</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/max" type="array">
+      <obj_property name="ElementShortName">max[31:0]</obj_property>
+      <obj_property name="ObjectShortName">max[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/start_w" type="logic">
+      <obj_property name="ElementShortName">start_w</obj_property>
+      <obj_property name="ObjectShortName">start_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/reset_w" type="logic">
+      <obj_property name="ElementShortName">reset_w</obj_property>
+      <obj_property name="ObjectShortName">reset_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/done_w" type="logic">
+      <obj_property name="ElementShortName">done_w</obj_property>
+      <obj_property name="ObjectShortName">done_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/error" type="logic">
+      <obj_property name="ElementShortName">error</obj_property>
+      <obj_property name="ObjectShortName">error</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/wave" type="array">
+      <obj_property name="ElementShortName">wave[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wave[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/WIDTH" type="array">
+      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/basic_minmax_tb/NO_OF_SAMPLES" type="array">
+      <obj_property name="ElementShortName">NO_OF_SAMPLES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NO_OF_SAMPLES[31:0]</obj_property>
+   </wvobject>
+</wave_config>

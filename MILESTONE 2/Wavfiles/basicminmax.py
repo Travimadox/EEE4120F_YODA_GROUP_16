@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import time
 
 def calculate_min_max(input_dir, output_dir, output_filename):
     """
@@ -27,8 +28,15 @@ def calculate_min_max(input_dir, output_dir, output_filename):
             df = df * 2**31
             
             # Calculate the global minimum and maximum
+            
+
+            start_time = time.time()
             min_value = df.values.min()
             max_value = df.values.max()
+            end_time = time.time()
+
+            elapsed_time = end_time - start_time
+            print(f"Elapsed time: {elapsed_time} seconds")
             
             # Add the results to the list
             results.append([filename, min_value, max_value])

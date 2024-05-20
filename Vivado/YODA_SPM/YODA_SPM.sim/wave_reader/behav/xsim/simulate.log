@@ -25,4 +25,4 @@ Audio data read
 *       Simulation End       *
 ******************************
 ******************************
-$stop called at time : 1323095 ns : File "C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/YODA_SPM/YODA_SPM.srcs/wave_reader/new/wave_reader_tb.sv" Line 199
+$stop called at time : 1323095 ns : File "C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/YODA_SPM/YODA_SPM.srcs/wave_reader/new/wave_reader_tb.sv" Line 203

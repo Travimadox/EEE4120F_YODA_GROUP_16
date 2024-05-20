@@ -1,0 +1,21 @@
+Time resolution is 1 ps
+Initial File Read
+Chunk ID: 0x52494646. Expected: 0x52494646 ('RIFF')
+Chunk Size: 000204f0 bytes
+Format: 0x57415645. Expected: 0x57415645 ('WAVE')
+Subchunk 1 ID read: 0x666d7420. Expected: 0x666d7420 ('fmt ')
+Subchunk 1 Size:         16 bytes. Expected: 16 (PCM)
+Audio Format:     1. Expected: 1 (other values indicate data compression)
+Number of Channels:     1. Expected: 1 (mono)
+Sample Rate:      22050 Hz
+Byte Rate:      44100 Bps
+Block Align:     2 bytes
+Bits per Sample:    16
+Subchunk 2 ID: 0x64617461. Expected: 0x64617461 ('data')
+Subchunk 2 Size:     132300 bytes
+Calculated Number of Samples:       66150
+Reading...
+Done Reading
+Starting int_minmax
+Done
+$finish called at time : 1455380 ns : File "C:/Users/lien/Desktop/EEE4120F_YODA_GROUP_16/Vivado/YODA_SPM/YODA_SPM.srcs/sim_interval_minmax/new/interval_minmax_tb.sv" Line 129

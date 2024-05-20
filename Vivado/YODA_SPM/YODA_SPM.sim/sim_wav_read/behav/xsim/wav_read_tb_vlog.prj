@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../YODA_SPM.srcs/sources_1/new/wav_read.sv" \
+"../../../../YODA_SPM.srcs/sim_wav_read/new/wav_read_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
